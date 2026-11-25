@@ -1,47 +1,40 @@
-# This file contains metadata for your plugin.
-
-# This file should be included when you package your plugin.# Mandatory items:
-
 [general]
-name=Spectra
-qgisMinimumVersion=3.0
-description=Interactive tool to plot pixel values with wavelength extracted from the bands.
-version=0.1
-author=Swapnil Goel/Pixxel
+name=Spectral Tool
+qgisMinimumVersion=3.16
+qgisMaximumVersion=4.99
+supportsQt6=True
+description=Interactive spectral profiler for any multi-band raster: click or drag on the map to plot pixel spectra against wavelength (when the data provides it) or band index.
+version=2.0
+author=Swapnil Goel, Pixxel
 email=swapnilgoel2704@gmail.com
 
-about=This is tool is an advanced version of Identify features tool where you can plot pixel values with wavelengths if available in the metadata with the raster layer. Use this tool to plot pixel values with wavelength.
+about=A spectral profiler for any multi-band raster (multispectral, hyperspectral, SAR stacks, time series, indices...). Click the map to plot every band of a pixel, or drag a box to plot its average spectrum.
 
-tracker=http://bugs
-repository=http://repo
+Key Features:
+- **Works with any raster:** Wavelengths are read from ENVI headers, GDAL/NetCDF/HDF metadata or band names; with none available the plot uses band index.
+- **Auto-fitting axes:** X and Y follow the data's own min and max; pan, box zoom, wheel zoom and typed limits hold the view until Reset.
+- **Multi-Point / Multi-Layer:** Compare many pixels in one layer, or one pixel across every visible layer.
+- **Point / Area:** Read a single pixel or average a dragged rectangle.
+- **Interactive legend:** Click to hide a curve, Shift-click to solo it.
+- **Light and dark themes:** Follows QGIS and the system appearance automatically.
+
+tracker=https://github.com/SwapGoel/spectra-tool-qgis/issues
+repository=https://github.com/SwapGoel/spectra-tool-qgis
+
 # End of mandatory metadata
 
 # Recommended items:
 
 hasProcessingProvider=no
-# Uncomment the following line and add your changelog:
-# changelog=
+changelog=2.0 - Blink-style panel: auto-fitting axes (y follows the spectra min/max), Multi-Point / Multi-Layer, Point / Area averaging, pan / box zoom / wheel zoom, typed limits, legend toggles, automatic light / dark theme.
 
-# Tags are comma separated with spaces allowed
-tags=raster, plotting, tool, spectra, spectral, wavelength
+tags=raster, plotting, tool, spectra, spectral, wavelength, remote sensing
 
-homepage=http://homepage
+homepage=https://github.com/SwapGoel/spectra-tool-qgis
 category=Plugins
 icon=icon.png
-# experimental flag
-experimental=True
 
-# deprecated flag (applies to the whole plugin, not just a single version)
+# Set to False to indicate a stable release
+experimental=False
 deprecated=False
-
-# Since QGIS 3.8, a comma separated list of plugins to be installed
-# (or upgraded) can be specified.
-# Check the documentation for more information.
-# plugin_dependencies=
-
-Category of the plugin: Raster, Vector, Database or Web
-# category=
-
-# If the plugin can run on QGIS Server.
 server=False
-
